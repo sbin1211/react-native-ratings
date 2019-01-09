@@ -3,8 +3,8 @@ import times from 'lodash/times';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { 
-  View, Text, Animated, PanResponder, Image, 
+import {
+  View, Text, Animated, PanResponder, Image,
   StyleSheet, Platform, ViewPropTypes
 } from 'react-native';
 
@@ -89,7 +89,7 @@ export default class SwipeRating extends Component {
       const BELL_IMAGE = await require('./images/bell.png');
 
       this.setState({ display: true })
-    } catch(err) {
+    } catch (err) {
       console.log(err)
     }
 
@@ -235,17 +235,17 @@ export default class SwipeRating extends Component {
 
     return (
       this.state.display ?
-      <View pointerEvents={readonly ? 'none' : 'auto'} style={style}>
-        {showRating && this.displayCurrentRating()}
-        <View style={styles.starsWrapper} {...this.state.panResponder.panHandlers}>
-          <View style={styles.starsInsideWrapper}>
-            <Animated.View style={this.getPrimaryViewStyle()} />
-            <Animated.View style={this.getSecondaryViewStyle()} />
+        <View pointerEvents={readonly ? 'none' : 'auto'} style={style}>
+          {showRating && this.displayCurrentRating()}
+          <View style={styles.starsWrapper} {...this.state.panResponder.panHandlers}>
+            <View style={styles.starsInsideWrapper}>
+              <Animated.View style={this.getPrimaryViewStyle()} />
+              <Animated.View style={this.getSecondaryViewStyle()} />
+            </View>
+            {this.renderRatings()}
           </View>
-          {this.renderRatings()}
-        </View>
-      </View> :
-      null
+        </View> :
+        null
     );
   }
 }
